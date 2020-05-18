@@ -2,12 +2,14 @@ import { FontAwesome, MaterialIcons } from '@expo/vector-icons';
 import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 import DeckList from './components/DeckList'
+import AddDeck from './components/AddDeck'
+import { addDeck } from './actions';
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <DeckList />
+        <AddDeck />
       </View>
     );
   }
