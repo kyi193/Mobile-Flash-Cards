@@ -4,9 +4,9 @@ import { StyleSheet, View, Text } from 'react-native'
 class DeckList extends Component {
   render() {
     return (
-      <Text>
-        DeckList
-      </Text>
+      <View>
+        <Text>DeckList</Text>
+      </View>
     )
   }
 }
