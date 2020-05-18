@@ -11,6 +11,7 @@ class AddDeck extends Component {
       input: '',
     }
   }
+
   render() {
     return (
       <View>
