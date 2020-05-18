@@ -1,4 +1,4 @@
-export const getInitialData = {
+const data = {
   Poker: {
     title: 'Poker',
     questions: [
@@ -12,4 +12,8 @@ export const getInitialData = {
       }
     ]
   }
+}
+
+export const getInitialData = () => {
+  return data;
 }
