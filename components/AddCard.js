@@ -3,7 +3,6 @@ import { StyleSheet, View, Text, TouchableOpacity, TextInput, Platform, Alert } 
 import { connect } from 'react-redux'
 import { blue, white, lightGreen } from '../utils/colors'
 import { addCard } from '../actions'
-import { CommonActions } from '@react-navigation/native';
 import { saveCard } from '../utils/api'
 
 function SubmitBtn({ onPress }) {
@@ -147,7 +146,6 @@ const styles = StyleSheet.create({
 })
 
 function mapStateToProps(state, { route }) {
-  console.log(route.params)
   const { name, id } = route.params
   return {
     name,

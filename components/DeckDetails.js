@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 
-function DeckDetails({ id, name, totalCards }) {
+function DeckDetails({ name, totalCards }) {
   return (
     <View>
       <Text style={styles.name}>{name}</Text>

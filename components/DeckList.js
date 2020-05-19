@@ -8,6 +8,11 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 import { offYellow } from '../utils/colors'
 import { AntDesign } from '@expo/vector-icons';
 class DeckList extends Component {
+  componentDidMount() {
+    const { dispatch } = this.props
+    retrieveDecks()
+      .then(decks => dispatch(receiveDecks(decks)))
+  }
   render() {
     const { decks } = this.props
     return Object.keys(decks).length > 0 ? (
