@@ -16,7 +16,11 @@ class DeckList extends Component {
           renderItem={({ item }) => (
             <TouchableOpacity style={styles.container}
               onPress={() =>
-                this.props.navigation.navigate("DeckSummary")}>
+                this.props.navigation.navigate("DeckSummary", {
+                  id: item.id,
+                  name: item.name,
+                  totalCards: item.cards.length
+                })}>
               <DeckDetails
                 key={item.id}
                 id={item.id}
