@@ -11,5 +11,25 @@ export const retrieveDecks = () => {
 }
 
 export const saveDeck = (deckID, deckTitle) => {
-  return AsyncStorage.mergeItem(FLASHCARD_STORAGE_KEY, JSON.stringify({ [deckID]: deckTitle }))
+  return AsyncStorage.mergeItem(FLASHCARD_STORAGE_KEY, JSON.stringify({
+    [deckID]: {
+      name: deckTitle,
+      id: deckID,
+      cards: []
+    }
+  }))
+}
+
+export const saveCard = (id, question, answer) => {
+  AsyncStorage.getItem(FLASHCARD_STORAGE_KEY)
+    .then(results => {
+      let state = JSON.parse(results)
+
+      const flashCard = {
+        question: question,
+        answer: answer
+      }
+      state[id].cards.push(flashCard)
+      return AsyncStorage.mergeItem(FLASHCARD_STORAGE_KEY, JSON.stringify(state))
+    })
 }

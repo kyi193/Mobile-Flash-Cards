@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { blue, white, lightGreen } from '../utils/colors'
 import { addCard } from '../actions'
 import { CommonActions } from '@react-navigation/native';
+import { saveCard } from '../utils/api'
 
 function SubmitBtn({ onPress }) {
   return (
@@ -53,6 +54,7 @@ class AddCard extends Component {
     const answer = this.state.answer
     const { id } = this.props
     dispatch(addCard(id, question, answer))
+    saveCard(id, question, answer)
 
     this.setState(() => ({
       question: '',
