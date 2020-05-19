@@ -17,25 +17,21 @@ class DeckList extends Component {
 
   render() {
     const { decks } = this.props
-    console.log(decks)
     const deckList = Object.keys(decks)
     return Object.keys(decks).length > 0 ? (
       <View>
-        {deckList.map(deck => (
-          <FlatList
-            key={deck.id}
-            data={Object.values(decks)}
-            renderItem={({ item }) => (
-              <DeckDetails
-                key={item.id}
-                id={item.id}
-                name={item.name}
-                totalCards={item.cards.length}
-              />
-            )}
-            keyExtractor={item => item.id}
-          />
-        ))}
+        <FlatList
+          data={Object.values(decks)}
+          renderItem={({ item }) => (
+            <DeckDetails
+              key={item.id}
+              id={item.id}
+              name={item.name}
+              totalCards={item.cards.length}
+            />
+          )}
+          keyExtractor={item => item.id}
+        />
       </View>
     )
       : (
