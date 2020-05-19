@@ -5,19 +5,8 @@ import { connect } from 'react-redux'
 import { receiveDecks } from '../actions'
 import DeckDetails from './DeckDetails'
 class DeckList extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      deckList: []
-    }
-  }
-  componentDidUpdate() {
-  }
-
   render() {
     const { decks } = this.props
-    const deckList = Object.keys(decks)
     return Object.keys(decks).length > 0 ? (
       <View>
         <FlatList
