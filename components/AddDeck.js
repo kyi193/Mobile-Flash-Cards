@@ -50,7 +50,7 @@ class AddDeck extends Component {
       <View styles={styles.container}>
         <Text>What is the topic of this deck?</Text>
         <TextInput
-          style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+          style={{ height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 25 }}
           onChangeText={text => this.onChangeText(text)}
           value={input}
         />
@@ -78,7 +78,6 @@ const styles = StyleSheet.create({
     height: 45,
     marginLeft: 40,
     marginRight: 40,
-    alignSelf: 'flex-end',
     justifyContent: 'center',
     alignItems: 'center'
   },
@@ -89,7 +88,6 @@ const styles = StyleSheet.create({
     paddingRight: 30,
     height: 45,
     borderRadius: 2,
-    alignSelf: 'flex-end',
     justifyContent: 'center',
     alignItems: 'center'
   },
