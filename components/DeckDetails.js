@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
+import { connect } from 'react-redux'
 
 function DeckDetails({ id, name, totalCards }) {
   return (
-    <TouchableOpacity style={styles.container}>
+    <View>
       <Text style={styles.name}>{name}</Text>
       <Text style={styles.count}>Flash Cards: {totalCards}</Text>
-    </TouchableOpacity>
+    </View>
   )
 }
 

@@ -4,6 +4,7 @@ import { retrieveDecks } from '../utils/api'
 import { connect } from 'react-redux'
 import { receiveDecks } from '../actions'
 import DeckDetails from './DeckDetails'
+import { TouchableOpacity } from 'react-native-gesture-handler'
 class DeckList extends Component {
   render() {
     const { decks } = this.props
@@ -13,12 +14,16 @@ class DeckList extends Component {
         <FlatList
           data={Object.values(decks)}
           renderItem={({ item }) => (
-            <DeckDetails
-              key={item.id}
-              id={item.id}
-              name={item.name}
-              totalCards={item.cards.length}
-            />
+            <TouchableOpacity style={styles.container}
+              onPress={() =>
+                this.props.navigation.navigate("DeckSummary")}>
+              <DeckDetails
+                key={item.id}
+                id={item.id}
+                name={item.name}
+                totalCards={item.cards.length}
+              />
+            </TouchableOpacity>
           )}
           keyExtractor={item => item.id}
         />

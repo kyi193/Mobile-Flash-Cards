@@ -14,6 +14,7 @@ import { purple, white, lightGray, steelBlue } from "./utils/colors";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import { createStackNavigator } from '@react-navigation/stack';
 import Constants from "expo-constants";
+import DeckSummary from './components/DeckSummary'
 
 const Tabs = createBottomTabNavigator()
 
@@ -74,6 +75,15 @@ const MainNav = () => (
       component={TabNav}
       options={{ headerShown: false }}
     />
+    <Stack.Screen
+      name="DeckSummary"
+      component={DeckSummary}
+      options={{
+        headerTintColor: white,
+        headerStyle: {
+          backgroundColor: steelBlue,
+        }
+      }} />
   </Stack.Navigator>
 );
 
