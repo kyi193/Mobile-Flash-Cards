@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, Text, TouchableOpacity, TextInput, Platform } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity, TextInput, Platform, Alert } from 'react-native'
 import { connect } from 'react-redux'
 import { blue, white, lightGreen } from '../utils/colors'
 import { addCard } from '../actions'
@@ -28,6 +28,21 @@ class AddCard extends Component {
     }
   }
 
+  createTwoButtonAlert = () =>
+    Alert.alert(
+      "Error",
+      "Please fill both sections in!",
+      [
+        { text: "OK", onPress: () => console.log("OK Pressed") }
+      ],
+      { cancelable: false }
+    );
+
+  onChangeText = (text) => {
+    this.setState(() => ({
+      input: text
+    }))
+  }
   setTitle = (name) => {
     if (!name) return;
     const title = `Add flash card ${name}`
@@ -53,6 +68,10 @@ class AddCard extends Component {
     const question = this.state.question
     const answer = this.state.answer
     const { id } = this.props
+    if (question.length < 1 || answer.length < 1) {
+      this.createTwoButtonAlert()
+      return
+    }
     dispatch(addCard(id, question, answer))
     saveCard(id, question, answer)
 

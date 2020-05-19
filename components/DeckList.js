@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { receiveDecks } from '../actions'
 import DeckDetails from './DeckDetails'
 import { TouchableOpacity } from 'react-native-gesture-handler'
+import { offYellow } from '../utils/colors'
 class DeckList extends Component {
   render() {
     const { decks } = this.props
@@ -12,6 +13,7 @@ class DeckList extends Component {
       <View>
         <Text style={styles.header}>Your Decks</Text>
         <FlatList
+          style={styles.deck}
           data={Object.values(decks)}
           renderItem={({ item }) => (
             <TouchableOpacity style={styles.container}
@@ -68,7 +70,13 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 50,
     textAlign: 'center',
-    marginBottom: 40
+    marginTop: 10,
+    marginBottom: 30,
+  },
+  deck: {
+    width: 350,
+    alignSelf: 'center',
+    backgroundColor: offYellow,
   }
 });
 export default connect(mapStateToProps)(DeckList);
