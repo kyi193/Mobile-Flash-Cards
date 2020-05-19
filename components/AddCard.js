@@ -92,7 +92,7 @@ class AddCard extends Component {
     this.setTitle(name)
     return (
       <View style={styles.container}>
-        <Text style={{ fontSize: 25, paddingBottom: 30 }}>What card would you like to add?</Text>
+        <Text style={{ fontSize: 25, paddingBottom: 20 }}>What card would you like to add?</Text>
         <Text>Question</Text>
         <TextInput
           style={{ width: 300, height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 25 }}
@@ -115,7 +115,7 @@ class AddCard extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
   },
   iosSubmitBtn: {
