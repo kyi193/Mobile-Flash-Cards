@@ -9,6 +9,7 @@ class DeckList extends Component {
     const { decks } = this.props
     return Object.keys(decks).length > 0 ? (
       <View>
+        <Text style={styles.header}>Your Decks</Text>
         <FlatList
           data={Object.values(decks)}
           renderItem={({ item }) => (
@@ -35,4 +36,30 @@ function mapStateToProps(decks) {
     decks,
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    minHeight: 120,
+    marginBottom: 10,
+    borderRadius: 5,
+    borderWidth: 2,
+  },
+  name: {
+    fontSize: 40,
+    textAlign: "center",
+    marginBottom: 5
+  },
+  count: {
+    fontSize: 20,
+    textAlign: "center",
+    marginBottom: 5
+  },
+  header: {
+    fontSize: 50,
+    textAlign: 'center',
+    marginBottom: 40
+  }
+});
 export default connect(mapStateToProps)(DeckList);
