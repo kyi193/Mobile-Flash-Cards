@@ -6,6 +6,7 @@ import { receiveDecks } from '../actions'
 import DeckDetails from './DeckDetails'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { offYellow } from '../utils/colors'
+import { AntDesign } from '@expo/vector-icons';
 class DeckList extends Component {
   render() {
     const { decks } = this.props
@@ -36,8 +37,13 @@ class DeckList extends Component {
       </View>
     )
       : (
-        <View>
-          <Text>Nothing to Show</Text>
+        <View style={styles.emptyList}>
+          <AntDesign
+            style={{ alignSelf: 'center' }}
+            name="meh" size={75}
+            color="red" />
+          <Text style={{ fontSize: 30, textAlign: 'center', paddingHorizontal: 5, paddingBottom: 15 }}>It appears you haven't added any decks in yet.</Text>
+          <Text style={{ fontSize: 15, textAlign: 'center', paddingHorizontal: 5 }}>Click the "Add Deck" tab to make your first!</Text>
         </View>
       )
   }
@@ -77,6 +83,11 @@ const styles = StyleSheet.create({
     width: 350,
     alignSelf: 'center',
     backgroundColor: offYellow,
+  },
+  emptyList: {
+    flex: 1,
+    justifyContent: 'center',
+    alignSelf: 'center'
   }
 });
 export default connect(mapStateToProps)(DeckList);
