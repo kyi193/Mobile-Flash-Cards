@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, TouchableOpacity, TextInput, Platform } from 'r
 import { connect } from 'react-redux'
 import { blue, white, lightGreen } from '../utils/colors'
 import { addCard } from '../actions'
-
+import { CommonActions } from '@react-navigation/native';
 
 function SubmitBtn({ onPress }) {
   return (
@@ -58,6 +58,12 @@ class AddCard extends Component {
       question: '',
       answer: '',
     }))
+
+    this.toHome();
+  }
+
+  toHome = () => {
+    this.props.navigation.navigate('Deck List')
   }
 
   render() {
