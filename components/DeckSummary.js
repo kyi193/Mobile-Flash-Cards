@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Platform, StatusBar, View, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { blue, lightGreen, white, tomatoRed } from '../utils/colors'
-
+import { lightGreen, white, tomatoRed } from '../utils/colors'
 
 function AddCardBtn({ onPress }) {
   return (
@@ -129,13 +128,6 @@ const styles = StyleSheet.create({
     fontSize: 22,
     textAlign: 'center',
   },
-  center: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginLeft: 30,
-    marginRight: 30,
-  }
 })
 
 function mapStateToProps(state, { route }) {

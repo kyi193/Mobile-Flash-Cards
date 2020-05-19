@@ -83,11 +83,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  row: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    flex: 1,
-  },
   iosSubmitBtn: {
     backgroundColor: lightGreen,
     padding: 10,
@@ -112,13 +107,6 @@ const styles = StyleSheet.create({
     color: white,
     fontSize: 22,
     textAlign: 'center',
-  },
-  center: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginLeft: 30,
-    marginRight: 30,
   },
   question: {
     textAlign: 'center',

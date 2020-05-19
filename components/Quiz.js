@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
-import { blue, lightGreen, white, tomatoRed } from '../utils/colors'
+import { lightGreen, white, tomatoRed } from '../utils/colors'
 import { connect } from 'react-redux'
 
 const questionPercentage = (numerator, denominator) => {
