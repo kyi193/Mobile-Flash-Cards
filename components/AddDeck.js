@@ -43,6 +43,8 @@ class AddDeck extends Component {
     this.setState(() => ({
       input: '',
     }))
+
+    this.props.navigation.navigate('Deck List')
   }
   render() {
     const { input } = this.state
