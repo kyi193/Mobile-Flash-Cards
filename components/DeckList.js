@@ -16,9 +16,12 @@ class DeckList extends Component {
 
   render() {
     const { decks } = this.props
+    const deckList = Object.keys(decks)
     return Object.keys(decks).length > 0 ? (
       <View>
-        <Text>{Object.keys(decks)}</Text>
+        {deckList.map(deck => (
+          <Text key={deck}>{deck}</Text>
+        ))}
       </View>
     )
       : (
