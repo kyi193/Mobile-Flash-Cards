@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, Text, TouchableOpacity, TextInput } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity, TextInput, Platform } from 'react-native'
 import { connect } from 'react-redux'
 import { blue, white, lightGreen } from '../utils/colors'
+import { addCard } from '../actions'
 
 
 function SubmitBtn({ onPress }) {
@@ -47,12 +48,21 @@ class AddCard extends Component {
   }
 
   submitCard = () => {
+    const { dispatch } = this.props;
+    const question = this.state.question
+    const answer = this.state.answer
+    const { name } = this.props
+    dispatch(addCard(name, question, answer))
 
+    this.setState(() => ({
+      question: '',
+      answer: '',
+    }))
   }
 
   render() {
     const { question, answer } = this.state
-    const { name, id } = this.props;
+    const { name } = this.props;
     this.setTitle(name)
     return (
       <View style={styles.container}>
@@ -113,7 +123,8 @@ function mapStateToProps(state, { route }) {
   console.log(route.params)
   const { name, id } = route.params
   return {
-    name
+    name,
+    id
   }
 }
 export default connect(mapStateToProps)(AddCard)
