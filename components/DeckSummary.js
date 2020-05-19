@@ -38,9 +38,17 @@ class DeckSummary extends Component {
   render() {
     const { id, name, totalCards } = this.props
     this.setTitle(name);
+    let cards;
+    switch (totalCards) {
+      case 1:
+        cards = 'card'
+      default:
+        cards = 'cards'
+    }
+
     return (
       <View style={styles.container}>
-        <Text>{totalCards} Card(s)</Text>
+        <Text style={styles.cards}>You have: {totalCards} {cards}</Text>
         <AddCardBtn />
         <QuizBtn />
       </View>
@@ -54,10 +62,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  row: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    flex: 1,
+  cards: {
+    fontSize: 30,
+    paddingBottom: 40,
   },
   iosAddCardBtn: {
     backgroundColor: lightGreen,
