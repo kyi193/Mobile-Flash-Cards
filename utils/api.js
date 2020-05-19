@@ -10,6 +10,6 @@ export const retrieveDecks = () => {
     })
 }
 
-export const saveDeck = (deck) => {
-  return AsyncStorage.mergeItem(FLASHCARD_STORAGE_KEY, JSON.stringify({ [deck.id]: deck }))
+export const saveDeck = (deckID, deckTitle) => {
+  return AsyncStorage.mergeItem(FLASHCARD_STORAGE_KEY, JSON.stringify({ [deckID]: deckTitle }))
 }

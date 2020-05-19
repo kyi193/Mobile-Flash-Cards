@@ -3,9 +3,10 @@ export const ADD_CARD = 'ADD_CARD';
 export const RECEIVE_DECKS = 'RECEIVE_DECKS'
 
 
-export function addDeck(name) {
+export function addDeck(id, name) {
   return {
     type: ADD_DECK,
+    id,
     name
   }
 }

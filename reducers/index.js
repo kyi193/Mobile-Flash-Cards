@@ -11,7 +11,7 @@ const decks = (state = null, action) => {
       return {
         ...state,
         [action.name]: {
-          id: action.name,
+          id: action.id,
           name: action.name,
           cards: [],
         }
