@@ -10,7 +10,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import middleware from './middleware'
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { purple, white } from "./utils/colors";
+import { purple, white, lightGray, steelBlue } from "./utils/colors";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import { createStackNavigator } from '@react-navigation/stack';
 import Constants from "expo-constants";
@@ -37,11 +37,12 @@ const TabNav = () => (
     })}
     tabBarOptions={{
       header: null,
-      activeTintColor: Platform.OS === "ios" ? purple : white,
+      activeTintColor: Platform.OS === "ios" ? lightGray : lightGray,
+      inactiveTintColor: Platform.OS === 'ios' ? white : white,
       showIcon: true,
       style: {
         height: 80,
-        backgroundColor: Platform.OS === "ios" ? white : purple,
+        backgroundColor: Platform.OS === "ios" ? steelBlue : purple,
         shadowColor: "rgba(0, 0, 0, 0.24)",
         shadowOffset: {
           width: 0,
