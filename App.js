@@ -58,6 +58,14 @@ const TabNav = () => (
   </Tabs.Navigator>
 );
 
+function UdaciStatusBar({ backgroundColor, ...props }) {
+  return (
+    <View style={{ backgroundColor, height: Constants.statusBarHeight }}>
+      <StatusBar translucent backgroundColor={backgroundColor} {...props} />
+    </View>
+  )
+}
+
 const Stack = createStackNavigator();
 const MainNav = () => (
   <Stack.Navigator headerMode="screen">
@@ -75,6 +83,7 @@ export default class App extends React.Component {
       <Provider store={createStore(reducer, composeWithDevTools(middleware))}>
         <View style={styles.container}>
           <NavigationContainer>
+            <UdaciStatusBar backgroundColor={steelBlue} barStyle="light-content" />
             <MainNav />
           </NavigationContainer>
         </View>

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { StyleSheet, View, Text, TextInput, TouchableOpacity, Platform } from 'react-native'
 import { addDeck } from '../actions'
 import { saveDeck, retrieveDecks } from '../utils/api'
-import { blue, purple, white, gray } from '../utils/colors'
+import { blue, purple, white, gray, tomatoRed } from '../utils/colors'
 import { connect } from 'react-redux'
 import { generateUID } from '../utils/helpers'
 
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   iosSubmitBtn: {
-    backgroundColor: blue,
+    backgroundColor: tomatoRed,
     padding: 10,
     borderRadius: 7,
     height: 45,
