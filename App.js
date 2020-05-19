@@ -16,6 +16,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Constants from "expo-constants";
 import DeckSummary from './components/DeckSummary'
 import AddCard from './components/AddCard'
+import Quiz from './components/Quiz'
 
 const Tabs = createBottomTabNavigator()
 
@@ -88,6 +89,15 @@ const MainNav = () => (
     <Stack.Screen
       name="AddCard"
       component={AddCard}
+      options={{
+        headerTintColor: white,
+        headerStyle: {
+          backgroundColor: steelBlue,
+        }
+      }} />
+    <Stack.Screen
+      name="Quiz"
+      component={Quiz}
       options={{
         headerTintColor: white,
         headerStyle: {
