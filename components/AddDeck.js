@@ -50,9 +50,9 @@ class AddDeck extends Component {
     const { input } = this.state
     return (
       <View styles={styles.container}>
-        <Text>What is the topic of this deck?</Text>
+        <Text style={styles.question}>What is the topic of this deck?</Text>
         <TextInput
-          style={{ height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 25 }}
+          style={{ width: 300, height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 25, alignSelf: 'center' }}
           onChangeText={text => this.onChangeText(text)}
           value={input}
         />
@@ -65,6 +65,7 @@ class AddDeck extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: 50,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -104,6 +105,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginLeft: 30,
     marginRight: 30,
+  },
+  question: {
+    textAlign: 'center',
+    paddingTop: 200,
+    fontSize: 30
   }
 })
 
