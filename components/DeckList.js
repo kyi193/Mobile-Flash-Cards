@@ -19,10 +19,10 @@ class DeckList extends Component {
 
     return (
       <View>
-
+        <Text>This is the Deck List</Text>
       </View>
     )
   }
 }
 
-export default connect(mapDispatchToProps)(DeckList);
+export default connect()(DeckList);

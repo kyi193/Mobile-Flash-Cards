@@ -62,8 +62,9 @@ class AddDeck extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
     flex: 1,
+    alignItems: 'center'
+
   },
   row: {
     flexDirection: 'row',

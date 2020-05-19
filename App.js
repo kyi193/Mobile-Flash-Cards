@@ -12,14 +12,70 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { purple, white } from "./utils/colors";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
+import { createStackNavigator } from '@react-navigation/stack';
 import Constants from "expo-constants";
+
+const Tabs = createBottomTabNavigator()
+
+const TabNav = () => (
+  <Tabs.Navigator
+    initialRouteName="AddDeck"
+    screenOptions={({ route }) => ({
+      tabBarIcon: ({ color, size }) => {
+        let icon;
+        if (route.name === "Add Deck") {
+          icon = (
+            <FontAwesome name="plus-square" size={size} color={color} />
+          );
+        } else if (route.name === "Deck List") {
+          icon = (
+            <Ionicons name="ios-bookmarks" size={size} color={color} />
+          );
+        }
+        return icon;
+      }
+    })}
+    tabBarOptions={{
+      header: null,
+      activeTintColor: Platform.OS === "ios" ? purple : white,
+      showIcon: true,
+      style: {
+        height: 80,
+        backgroundColor: Platform.OS === "ios" ? white : purple,
+        shadowColor: "rgba(0, 0, 0, 0.24)",
+        shadowOffset: {
+          width: 0,
+          height: 3
+        },
+        shadowRadius: 6,
+        shadowOpacity: 1
+      }
+    }}
+  >
+    <Tabs.Screen name="Add Deck" component={AddDeck} />
+    <Tabs.Screen name="Deck List" component={DeckList} />
+  </Tabs.Navigator>
+);
+
+const Stack = createStackNavigator();
+const MainNav = () => (
+  <Stack.Navigator headerMode="screen">
+    <Stack.Screen
+      name="Home"
+      component={TabNav}
+      options={{ headerShown: false }}
+    />
+  </Stack.Navigator>
+);
 
 export default class App extends React.Component {
   render() {
     return (
       <Provider store={createStore(reducer, composeWithDevTools(middleware))}>
         <View style={styles.container}>
-          <DeckList />
+          <NavigationContainer>
+            <MainNav />
+          </NavigationContainer>
         </View>
       </Provider>
     );
@@ -29,7 +85,5 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 });
