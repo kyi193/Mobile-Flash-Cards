@@ -1,4 +1,4 @@
-import { ADD_DECK, RECEIVE_DECKS, ADD_CARD } from '../actions'
+import { ADD_DECK, RECEIVE_DECKS, ADD_CARD, CLEAR_DECKS } from '../actions'
 let newState;
 const decks = (state = {}, action) => {
   switch (action.type) {
@@ -25,6 +25,8 @@ const decks = (state = {}, action) => {
       newState[action.id].cards.push(flashCard)
       return newState;
     }
+    case CLEAR_DECKS:
+      return {}
     default:
       return state
   }

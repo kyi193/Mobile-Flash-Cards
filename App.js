@@ -17,6 +17,8 @@ import Constants from "expo-constants";
 import DeckSummary from './components/DeckSummary'
 import AddCard from './components/AddCard'
 import Quiz from './components/Quiz'
+import Settings from './components/Settings'
+import { AntDesign } from '@expo/vector-icons';
 
 const Tabs = createBottomTabNavigator()
 
@@ -33,6 +35,11 @@ const TabNav = () => (
         } else if (route.name === "Deck List") {
           icon = (
             <Ionicons name="ios-bookmarks" size={size} color={color} />
+          );
+        }
+        else if (route.name === "Settings") {
+          icon = (
+            <AntDesign name="setting" size={size} color={color} />
           );
         }
         return icon;
@@ -58,6 +65,7 @@ const TabNav = () => (
   >
     <Tabs.Screen name="Add Deck" component={AddDeck} />
     <Tabs.Screen name="Deck List" component={DeckList} />
+    <Tabs.Screen name="Settings" component={Settings} />
   </Tabs.Navigator>
 );
 
