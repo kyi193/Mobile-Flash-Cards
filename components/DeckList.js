@@ -13,16 +13,24 @@ class DeckList extends Component {
   }
   componentDidUpdate() {
   }
-  componentDidMount() {
-  }
-  render() {
 
-    return (
+  render() {
+    const { decks } = this.props
+    return Object.keys(decks).length > 0 ? (
       <View>
-        <Text>This is the Deck List</Text>
+        <Text>{Object.keys(decks)}</Text>
       </View>
     )
+      : (
+        <View>
+          <Text>Nothing to Show</Text>
+        </View>
+      )
   }
 }
-
-export default connect()(DeckList);
+function mapStateToProps(decks) {
+  return {
+    decks,
+  }
+}
+export default connect(mapStateToProps)(DeckList);

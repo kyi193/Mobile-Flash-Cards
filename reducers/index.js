@@ -1,6 +1,6 @@
 import { ADD_DECK, RECEIVE_DECKS } from '../actions'
 
-const decks = (state = null, action) => {
+const decks = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_DECKS:
       return {
@@ -16,6 +16,8 @@ const decks = (state = null, action) => {
           cards: [],
         }
       }
+    default:
+      return state
   }
 }
 
