@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { StyleSheet, View, Text, TouchableOpacity, TextInput } from 'react-native'
+import { connect } from 'react-redux'
 
 class AddCard extends Component {
   constructor(props) {
@@ -10,8 +11,19 @@ class AddCard extends Component {
       answer: '',
     }
   }
+
+  setTitle = (name) => {
+    if (!name) return;
+    const title = `Add flash card ${name}`
+    this.props.navigation.setOptions({
+      title: title,
+    });
+  };
+
   render() {
     const { question, answer } = this.state
+    const { name } = this.props;
+    this.setTitle(name)
     return (
       <View style={styles.container}>
         <Text style={{ fontSize: 25, paddingBottom: 30 }}>What card would you like to add?</Text>
@@ -39,4 +51,11 @@ const styles = StyleSheet.create({
   },
 })
 
-export default AddCard
+function mapStateToProps(state, { route }) {
+  console.log(route.params)
+  const { name } = route.params
+  return {
+    name
+  }
+}
+export default connect(mapStateToProps)(AddCard)

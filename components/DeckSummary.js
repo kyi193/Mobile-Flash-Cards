@@ -51,7 +51,7 @@ class DeckSummary extends Component {
         <Text style={styles.cards}>You have: {totalCards} {cards}</Text>
         <AddCardBtn
           onPress={() =>
-            this.props.navigation.navigate("AddCard")} />
+            this.props.navigation.navigate("AddCard", { name: name })} />
         <QuizBtn />
       </View>
     )
