@@ -10,7 +10,14 @@ export function addDeck(id, name) {
     name
   }
 }
-
+export function addCard(id, question, answer) {
+  return {
+    type: ADD_CARD,
+    id,
+    question,
+    answer,
+  }
+}
 export function receiveDecks(decks) {
   return {
     type: RECEIVE_DECKS,

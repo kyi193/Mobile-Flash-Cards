@@ -52,7 +52,7 @@ class AddCard extends Component {
 
   render() {
     const { question, answer } = this.state
-    const { name } = this.props;
+    const { name, id } = this.props;
     this.setTitle(name)
     return (
       <View style={styles.container}>
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
 
 function mapStateToProps(state, { route }) {
   console.log(route.params)
-  const { name } = route.params
+  const { name, id } = route.params
   return {
     name
   }

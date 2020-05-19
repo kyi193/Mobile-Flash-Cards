@@ -1,5 +1,5 @@
-import { ADD_DECK, RECEIVE_DECKS } from '../actions'
-
+import { ADD_DECK, RECEIVE_DECKS, ADD_CARD } from '../actions'
+let newState;
 const decks = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_DECKS:
@@ -16,6 +16,15 @@ const decks = (state = {}, action) => {
           cards: [],
         }
       }
+    case ADD_CARD: {
+      newState = { ...state }
+      const flashCard = {
+        question: action.question,
+        answer: action.answer
+      }
+      newState[action.id].cards.push(flashCard)
+      return newState;
+    }
     default:
       return state
   }
