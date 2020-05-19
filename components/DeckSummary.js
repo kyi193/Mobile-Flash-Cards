@@ -52,9 +52,14 @@ class DeckSummary extends Component {
         <AddCardBtn
           onPress={() =>
             this.props.navigation.navigate("AddCard", { name: name, id: id })} />
-        <QuizBtn
-          onPress={() =>
-            this.props.navigation.navigate("Quiz")} />
+        {totalCards > 0
+          ? <QuizBtn
+            onPress={() =>
+              this.props.navigation.navigate("Quiz")} />
+          : <View>
+            <Text>You haven't added any flash cards yet!</Text>
+          </View>}
+
       </View>
     )
   }
