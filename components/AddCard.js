@@ -1,6 +1,20 @@
 import React, { Component } from 'react'
 import { StyleSheet, View, Text, TouchableOpacity, TextInput } from 'react-native'
 import { connect } from 'react-redux'
+import { blue, white, lightGreen } from '../utils/colors'
+
+
+function SubmitBtn({ onPress }) {
+  return (
+    <TouchableOpacity
+      style={Platform.OS === 'ios'
+        ? styles.iosSubmitBtn
+        : styles.androidSubmitBtn}
+      onPress={onPress}>
+      <Text style={styles.submitBtnText}>Add flash card!</Text>
+    </TouchableOpacity>
+  )
+}
 
 class AddCard extends Component {
   constructor(props) {
@@ -20,6 +34,22 @@ class AddCard extends Component {
     });
   };
 
+  onChangeQuestionText = (text) => {
+    this.setState(() => ({
+      question: text
+    }))
+  }
+
+  onChangeAnswerText = (text) => {
+    this.setState(() => ({
+      answer: text
+    }))
+  }
+
+  submitCard = () => {
+
+  }
+
   render() {
     const { question, answer } = this.state
     const { name } = this.props;
@@ -27,18 +57,21 @@ class AddCard extends Component {
     return (
       <View style={styles.container}>
         <Text style={{ fontSize: 25, paddingBottom: 30 }}>What card would you like to add?</Text>
+        <Text>Question</Text>
         <TextInput
           style={{ width: 300, height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 25 }}
-          onChangeText={text => this.onChangeText(text)}
+          onChangeText={text => this.onChangeQuestionText(text)}
           value={question}
-          placeholder='  Question'
+          placeholder='  Question goes here...'
         />
+        <Text>Answer</Text>
         <TextInput
           style={{ width: 300, height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 25 }}
-          onChangeText={text => this.onChangeText(text)}
+          onChangeText={text => this.onChangeAnswerText(text)}
           value={answer}
-          placeholder='  Answer'
+          placeholder='  Answer goes here...'
         />
+        <SubmitBtn onPress={this.submitCard} />
       </View>
     )
   }
@@ -48,6 +81,31 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  iosSubmitBtn: {
+    backgroundColor: lightGreen,
+    padding: 10,
+    borderRadius: 7,
+    height: 45,
+    marginLeft: 40,
+    marginRight: 40,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  androidSubmitBtn: {
+    backgroundColor: blue,
+    padding: 10,
+    paddingLeft: 30,
+    paddingRight: 30,
+    height: 45,
+    borderRadius: 2,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  submitBtnText: {
+    color: white,
+    fontSize: 22,
+    textAlign: 'center',
   },
 })
 
