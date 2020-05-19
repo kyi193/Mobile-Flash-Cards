@@ -51,8 +51,8 @@ class AddCard extends Component {
     const { dispatch } = this.props;
     const question = this.state.question
     const answer = this.state.answer
-    const { name } = this.props
-    dispatch(addCard(name, question, answer))
+    const { id } = this.props
+    dispatch(addCard(id, question, answer))
 
     this.setState(() => ({
       question: '',

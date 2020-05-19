@@ -10,7 +10,7 @@ const decks = (state = {}, action) => {
     case ADD_DECK:
       return {
         ...state,
-        [action.name]: {
+        [action.id]: {
           id: action.id,
           name: action.name,
           cards: [],
