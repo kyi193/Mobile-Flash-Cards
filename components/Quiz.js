@@ -70,8 +70,16 @@ class Quiz extends Component {
           ? <View>
             <Text style={styles.correctQuestions}>You got {correctAnswers} questions correct!</Text>
             {questionPercentage(correctAnswers, deckLength) > 75
-              ? <Text style={styles.goodPercentage}>{questionPercentage(correctAnswers, deckLength)}%</Text>
-              : <Text style={styles.badPercentage}>{questionPercentage(correctAnswers, deckLength)}%</Text>
+              ? <View>
+                <Text style={styles.goodPercentage}>{questionPercentage(correctAnswers, deckLength)}%</Text>
+                <Text style={{ textAlign: 'center', fontSize: 24 }}>Looking Good! 👍</Text>
+              </View>
+
+              : <View>
+                <Text style={styles.badPercentage}>{questionPercentage(correctAnswers, deckLength)}%</Text>
+                <Text style={{ textAlign: 'center', fontSize: 24 }}>Might want to brush up on your studies! 🤔</Text>
+              </View>
+
             }
 
           </View>
@@ -110,9 +118,15 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   answer: {
-    fontSize: 30,
+    fontSize: 20,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    padding: 20,
+    borderWidth: 5,
+    borderRadius: 20,
+    height: 80,
+    width: 300,
+    textAlign: "center",
   },
   iosCorrectBtn: {
     backgroundColor: lightGreen,
@@ -121,6 +135,7 @@ const styles = StyleSheet.create({
     height: 45,
     marginLeft: 40,
     marginRight: 40,
+    marginTop: 20,
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 10,
