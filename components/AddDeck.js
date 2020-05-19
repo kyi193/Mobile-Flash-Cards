@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, Text, TextInput, TouchableOpacity, Platform } from 'react-native'
+import { StyleSheet, View, Text, TextInput, TouchableOpacity, Platform, Alert } from 'react-native'
 import { addDeck } from '../actions'
 import { saveDeck, retrieveDecks } from '../utils/api'
 import { blue, purple, white, gray, tomatoRed } from '../utils/colors'
@@ -18,6 +18,8 @@ function SubmitBtn({ onPress }) {
   )
 }
 
+
+
 class AddDeck extends Component {
   constructor(props) {
     super(props)
@@ -26,6 +28,15 @@ class AddDeck extends Component {
       input: '',
     }
   }
+  createTwoButtonAlert = () =>
+    Alert.alert(
+      "Error",
+      "Please type in a topic!",
+      [
+        { text: "OK", onPress: () => console.log("OK Pressed") }
+      ],
+      { cancelable: false }
+    );
 
   onChangeText = (text) => {
     this.setState(() => ({
@@ -37,6 +48,10 @@ class AddDeck extends Component {
     const { dispatch } = this.props;
     const deckTitle = this.state.input
     const deckID = generateUID();
+    if (deckTitle.length < 1) {
+      this.createTwoButtonAlert()
+      return
+    }
     dispatch(addDeck(deckID, deckTitle))
     saveDeck(deckID, deckTitle)
 
@@ -54,6 +69,7 @@ class AddDeck extends Component {
         <TextInput
           style={{ width: 300, height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 25, alignSelf: 'center' }}
           onChangeText={text => this.onChangeText(text)}
+          placeholder='  Enter topic here....'
           value={input}
         />
         <SubmitBtn onPress={this.submit} />
