@@ -1,44 +1,53 @@
-# [Icons Example](https://docs.expo.io/versions/latest/guides/icons/)
+# Mobile Flash Cards
 
-<p>
-  <!-- iOS -->
-  <img alt="Supports Expo iOS" longdesc="Supports Expo iOS" src="https://img.shields.io/badge/iOS-4630EB.svg?style=flat-square&logo=APPLE&labelColor=999999&logoColor=fff" />
-  <!-- Android -->
-  <img alt="Supports Expo Android" longdesc="Supports Expo Android" src="https://img.shields.io/badge/Android-4630EB.svg?style=flat-square&logo=ANDROID&labelColor=A4C639&logoColor=fff" />
-  <!-- Web -->
-  <img alt="Supports Expo Web" longdesc="Supports Expo Web" src="https://img.shields.io/badge/web-4630EB.svg?style=flat-square&logo=GOOGLE-CHROME&labelColor=4285F4&logoColor=fff" />
-</p>
+A study assistance app that lets users create decks of flash cards however they wish. The app also has a quiz section that will grade you based on the results. 
 
-The package `@expo/vector-icons` enables you to use most popular icon sets in a universal app. For more information please refer to the docs: [Expo Icons](https://docs.expo.io/versions/latest/guides/icons/).
+## Prerequisites
 
-## 🚀 How to use
+NOTE: This app is compatible IOS and Android devices
 
-#### Creating a new project**
-
-- Install the CLI: `npm i -g expo-cli`
-- Create a project: `expo init `
-- `cd` into the project
-
-### Using Icons
-
-- Install the package:
- ```sh
- expo install @expo/vector-icons
- ```
-- Import the fonts you want to use
-```js
-import {
-  FontAwesome,
-  AntDesign,
-  Entypo,
-  EvilIcons,
-  Feather,
-  FontAwesome
-} from '@expo/vector-icons';
+1. You will need to install the Expo app on your mobile device first to run Poker Bank. 
+```
+https://apps.apple.com/us/app/expo-client/id982107779
+```
+2. Install the Expo Client on your computer.
+```
+-npm install -g expo-cli
 ```
 
-## 📝 Notes
+## Getting Started
 
-- [Icon directory](https://expo.github.io/vector-icons/)
-- [`@expo/vector-icons` documentation](https://docs.expo.io/versions/latest/guides/icons/)
-# Mobile-Flash-Cards
+To run this project locally, clone this repository and run the following commands:
+
+```
+-yarn install
+-expo start
+open Mobile-Flash-Cards on yourdevice with the Expo App
+```
+
+# App Features
+
+Add any deck of your choice
+
+![](https://media2.giphy.com/media/L1QqajgcBLdZYQTtXN/giphy.gif?cid=4d1e4f295158dd4e6d266c43f05c323cd0b8ee191c64461f&rid=giphy.gif)
+
+Add flash cards to a deck
+
+![](https://media1.giphy.com/media/VIhOgVqrKP2gRdjhpR/giphy.gif?cid=4d1e4f295158dd4e6d266c43f05c323cd0b8ee191c64461f&rid=giphy.gif)
+
+Quiz yourself!
+
+![](https://media3.giphy.com/media/U3DYCHCjVvEkto0dcM/giphy.gif?cid=4d1e4f293722ce70b198b3ee58b14fc2552c6ec105d64314&rid=giphy.gif)
+
+
+## Built With
+
+* [React-Native](https://reactnative.dev/) - The framework used.
+* [Expo Tools](https://expo.io/tools#cli) - Framework/set of tools built around React Native for developing, building, and deploying mobile apps.
+* [Redux](https://redux.js.org/introduction/core-concepts) - State container that stores state data all in one place.
+
+
+## Authors
+
+* **Kevin Yi** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+
