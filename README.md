@@ -6,7 +6,7 @@ A study assistance app that lets users create decks of flash cards however they 
 
 NOTE: This app is compatible IOS and Android devices
 
-1. You will need to install the Expo app on your mobile device first to run Poker Bank. 
+1. You will need to install the Expo app on your mobile device first to run Mobile Flash Cards. 
 ```
 https://apps.apple.com/us/app/expo-client/id982107779
 ```
