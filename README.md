@@ -49,5 +49,5 @@ Quiz yourself!
 
 ## Authors
 
-* **Kevin Yi** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Kevin Yi** 
 
